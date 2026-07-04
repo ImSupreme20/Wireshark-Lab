@@ -214,4 +214,4 @@ Three `.pcapng` files are included in this repository:
 
 **Ifeanyichukwu R. (Raymond) Ezirike**
 B.S. Information Technology, Network Security -- Towson University
-[LinkedIn](#) · [GitHub](#)
+[LinkedIn](https://www.linkedin.com/in/ifeanyichukwu-ezirike-3a176b2b8/) · [GitHub](https://github.com/ImSupreme20)
