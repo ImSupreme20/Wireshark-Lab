@@ -1,0 +1,119 @@
+<svg viewBox="0 0 1100 860" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrowDown" markerWidth="10" markerHeight="10" refX="5" refY="8" orient="auto" markerUnits="strokeWidth">
+      <path d="M1,1 L5,9 L9,1" fill="none" stroke="#4a6fa5" stroke-width="1.2"/>
+    </marker>
+    <marker id="arrowGrey" markerWidth="10" markerHeight="10" refX="5" refY="8" orient="auto" markerUnits="strokeWidth">
+      <path d="M1,1 L5,9 L9,1" fill="none" stroke="#888" stroke-width="1.2"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="5" refY="8" orient="auto" markerUnits="strokeWidth">
+      <path d="M1,1 L5,9 L9,1" fill="none" stroke="#c47a2b" stroke-width="1.2"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1100" height="860" fill="#f7f9fc"/>
+
+  <!-- Title -->
+  <text x="550" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#1b2733">Wireshark Network Analysis Lab</text>
+  <text x="550" y="56" text-anchor="middle" font-size="13" fill="#5b6b7a">Packet Capture Pipeline · DNS · TCP · HTTP · Stream Analysis</text>
+
+  <!-- LAYER 1: Internet -->
+  <rect x="30" y="74" width="1040" height="100" rx="10" fill="#e8f5ee" stroke="#2f8a52" stroke-width="1.5"/>
+  <text x="550" y="98" text-anchor="middle" font-size="13" font-weight="700" fill="#1f6b3a">Internet</text>
+  <text x="550" y="118" text-anchor="middle" font-size="11.5" fill="#2f6b40">Web Servers · DNS Servers · Remote Hosts</text>
+  <text x="550" y="138" text-anchor="middle" font-size="11" fill="#2f6b40">DNS :53 · HTTP :80 · HTTPS :443 · ICMP · TCP/UDP</text>
+
+  <!-- Arrow 1 -->
+  <line x1="550" y1="174" x2="550" y2="200" stroke="#4a6fa5" stroke-width="1.6" marker-end="url(#arrowDown)"/>
+  <text x="564" y="191" font-size="10.5" fill="#4a6fa5" font-style="italic">all frames</text>
+
+  <!-- LAYER 2: Router/Switch -->
+  <rect x="30" y="200" width="1040" height="80" rx="10" fill="#f0f0f0" stroke="#aaaaaa" stroke-width="1.5"/>
+  <text x="550" y="228" text-anchor="middle" font-size="13" font-weight="700" fill="#333">Router / Switch</text>
+  <text x="550" y="250" text-anchor="middle" font-size="11.5" fill="#555">Home network or lab network -- forwards all frames</text>
+
+  <!-- Arrow 2 -->
+  <line x1="550" y1="280" x2="550" y2="306" stroke="#4a6fa5" stroke-width="1.6" marker-end="url(#arrowDown)"/>
+  <text x="564" y="298" font-size="10.5" fill="#4a6fa5" font-style="italic">raw packets</text>
+
+  <!-- LAYER 3: NIC -->
+  <rect x="30" y="306" width="1040" height="100" rx="10" fill="#deeaf8" stroke="#4a6fa5" stroke-width="1.5"/>
+  <text x="550" y="332" text-anchor="middle" font-size="13" font-weight="700" fill="#2c5b8a">Network Interface Card (NIC)</text>
+  <text x="550" y="354" text-anchor="middle" font-size="11.5" fill="#2c5b8a">Promiscuous mode -- captures ALL packets on the network segment</text>
+  <text x="550" y="374" text-anchor="middle" font-size="11" fill="#4a6fa5">not just packets addressed to your machine</text>
+
+  <!-- Arrow 3 -->
+  <line x1="550" y1="406" x2="550" y2="432" stroke="#4a6fa5" stroke-width="1.6" marker-end="url(#arrowDown)"/>
+  <text x="564" y="424" font-size="10.5" fill="#4a6fa5" font-style="italic">decoded frames</text>
+
+  <!-- LAYER 4: Wireshark Engine -->
+  <rect x="30" y="432" width="1040" height="100" rx="10" fill="#ece3f5" stroke="#7b4397" stroke-width="1.5"/>
+  <text x="550" y="460" text-anchor="middle" font-size="13" font-weight="700" fill="#5a2d82">Wireshark</text>
+  <text x="550" y="482" text-anchor="middle" font-size="11.5" fill="#5a2d82">Decodes every packet · applies display filters · reassembles streams</text>
+  <text x="550" y="502" text-anchor="middle" font-size="11" fill="#7b4397">reads every layer from Ethernet frame to application payload</text>
+
+  <!-- Arrow 4 branching label -->
+  <text x="550" y="540" text-anchor="middle" font-size="10.5" fill="#c47a2b" font-style="italic">analysis pipeline</text>
+
+  <!-- Branch lines from Wireshark to 4 pipeline boxes -->
+  <line x1="550" y1="532" x2="550" y2="548" stroke="#c47a2b" stroke-width="1.4"/>
+  <line x1="155" y1="548" x2="945" y2="548" stroke="#c47a2b" stroke-width="1.4"/>
+  <line x1="155" y1="548" x2="155" y2="566" stroke="#c47a2b" stroke-width="1.4" marker-end="url(#arrowOrange)"/>
+  <line x1="405" y1="548" x2="405" y2="566" stroke="#c47a2b" stroke-width="1.4" marker-end="url(#arrowOrange)"/>
+  <line x1="695" y1="548" x2="695" y2="566" stroke="#c47a2b" stroke-width="1.4" marker-end="url(#arrowOrange)"/>
+  <line x1="945" y1="548" x2="945" y2="566" stroke="#c47a2b" stroke-width="1.4" marker-end="url(#arrowOrange)"/>
+
+  <!-- Pipeline box 1: Capture -->
+  <rect x="40" y="566" width="230" height="100" rx="8" fill="#fef3e2" stroke="#c47a2b" stroke-width="1.5"/>
+  <rect x="40" y="566" width="230" height="32" rx="8" fill="#c47a2b"/>
+  <text x="155" y="588" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff">Capture</text>
+  <text x="155" y="622" text-anchor="middle" font-size="11" fill="#4a2800">Live traffic</text>
+  <text x="155" y="640" text-anchor="middle" font-size="11" fill="#4a2800">or .pcapng file</text>
+
+  <!-- Pipeline box 2: Filter -->
+  <rect x="290" y="566" width="230" height="100" rx="8" fill="#fef3e2" stroke="#c47a2b" stroke-width="1.5"/>
+  <rect x="290" y="566" width="230" height="32" rx="8" fill="#c47a2b"/>
+  <text x="405" y="588" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff">Filter</text>
+  <text x="405" y="616" text-anchor="middle" font-size="11" fill="#4a2800">dns / ip.addr</text>
+  <text x="405" y="634" text-anchor="middle" font-size="11" fill="#4a2800">tcp / http / icmp</text>
+
+  <!-- Pipeline box 3: Analyse -->
+  <rect x="580" y="566" width="230" height="100" rx="8" fill="#fef3e2" stroke="#c47a2b" stroke-width="1.5"/>
+  <rect x="580" y="566" width="230" height="32" rx="8" fill="#c47a2b"/>
+  <text x="695" y="588" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff">Analyse</text>
+  <text x="695" y="616" text-anchor="middle" font-size="11" fill="#4a2800">Protocols and streams</text>
+  <text x="695" y="634" text-anchor="middle" font-size="11" fill="#4a2800">TCP handshake · DNS</text>
+
+  <!-- Pipeline box 4: Export -->
+  <rect x="830" y="566" width="230" height="100" rx="8" fill="#fef3e2" stroke="#c47a2b" stroke-width="1.5"/>
+  <rect x="830" y="566" width="230" height="32" rx="8" fill="#c47a2b"/>
+  <text x="945" y="588" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff">Export</text>
+  <text x="945" y="616" text-anchor="middle" font-size="11" fill="#4a2800">.pcapng file</text>
+  <text x="945" y="634" text-anchor="middle" font-size="11" fill="#4a2800">for portfolio</text>
+
+  <!-- Legend -->
+  <rect x="30" y="700" width="1040" height="58" rx="8" fill="#ffffff" stroke="#dddddd" stroke-width="1.2"/>
+  <text x="55" y="720" font-size="11" font-weight="700" fill="#444">Legend</text>
+
+  <rect x="55" y="728" width="14" height="14" rx="3" fill="#e8f5ee" stroke="#2f8a52" stroke-width="1.2"/>
+  <text x="76" y="740" font-size="10.5" fill="#333">Network traffic</text>
+
+  <rect x="205" y="728" width="14" height="14" rx="3" fill="#f0f0f0" stroke="#aaaaaa" stroke-width="1.2"/>
+  <text x="226" y="740" font-size="10.5" fill="#333">Network hardware</text>
+
+  <rect x="375" y="728" width="14" height="14" rx="3" fill="#deeaf8" stroke="#4a6fa5" stroke-width="1.2"/>
+  <text x="396" y="740" font-size="10.5" fill="#333">Capture layer (NIC)</text>
+
+  <rect x="545" y="728" width="14" height="14" rx="3" fill="#ece3f5" stroke="#7b4397" stroke-width="1.2"/>
+  <text x="566" y="740" font-size="10.5" fill="#333">Wireshark engine</text>
+
+  <rect x="705" y="728" width="14" height="14" rx="3" fill="#fef3e2" stroke="#c47a2b" stroke-width="1.2"/>
+  <text x="726" y="740" font-size="10.5" fill="#333">Analysis pipeline</text>
+
+  <!-- Exercises reference panel -->
+  <rect x="30" y="774" width="1040" height="68" rx="8" fill="#f0f4fb" stroke="#4a6fa5" stroke-width="1.2"/>
+  <text x="55" y="796" font-size="11" font-weight="700" fill="#2c5b8a">Lab Exercises Covered</text>
+  <text x="55" y="816" font-size="10.5" fill="#333">A: DNS Lookup Capture   B: TCP Three-Way Handshake   C: Cleartext Credentials over HTTP   D: Follow TCP Stream</text>
+  <text x="55" y="833" font-size="10.5" fill="#555">Captures saved as .pcapng · dns-lookup · tcp-handshake · http-stream</text>
+</svg>
